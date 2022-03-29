@@ -1,11 +1,5 @@
 // Configs for vue.js
-var devTools = true;
 Vue.config.devtools = true;
-// exports
-export var devtools = devtools
-export function returnDevTools() {
-    console.log(Vue.config.devtools);
-}
 // Elements
 // basic elements
 var header = new Vue({
