@@ -1,5 +1,4 @@
 // Configs for vue.js
-Vue.config.devtools = true;
 // Elements
 // basic elements
 var header = new Vue({
@@ -9,7 +8,11 @@ var header = new Vue({
             template: `
             <div>
                 <link rel="stylesheet" href="/kit.css">
-                <script type="module" src="/module.js"></script>
+                <script type="module">
+                    import * as main from './module.js';
+                    Vue.config.devtools = main.devtools;
+                    main.returnDevTools();
+                </script>
             </div>`
         }
     }
