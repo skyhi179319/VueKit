@@ -1,4 +1,3 @@
-// Configs for vue.js
 // Elements
 // basic elements
 var header = new Vue({
@@ -11,7 +10,9 @@ var header = new Vue({
                 <script type="module">
                     import * as main from './module.js';
                     Vue.config.devtools = main.devtools;
+                    Vue.config.productionTip = main.productionTip;
                     main.returnDevTools();
+                    main.returnProductionTip();
                 </script>
             </div>`
         }
