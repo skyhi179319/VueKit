@@ -9,6 +9,7 @@ var header = new Vue({
             template: `
             <div>
                 <link rel="stylesheet" href="/kit.css">
+                <script type="module" src="/module.js"></script>
             </div>`
         }
     }
@@ -105,12 +106,12 @@ var video = new Vue({
             <div>
                 <div v-if="autoplay === 'true'">
                     <video controls autoplay class="kit-video">
-                        <source v-bind:src="file" type="audio/mpeg">
+                        <source v-bind:src="file" type="video/mp4">
                     </video>
                 </div>
                 <div v-else>
                     <video controls class="kit-video">
-                        <source v-bind:src="file" type="audio/mpeg">
+                        <source v-bind:src="file" type="video/mp4">
                     </video>
                 </div>   
             </div>`

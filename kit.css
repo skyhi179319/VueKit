@@ -1,20 +1,27 @@
 .kit-textarea{
-
+    border: lightgrey solid 1px;
+    text-align: center;
+    resize: none;
 }
 .kit-audio{
-
+    background-color: whitesmoke;
 }
 .kit-video{
-
+    width: 300px;
+    height: 160px;
+    background-color: black;
 }
 .kit-youtube{
 
 }
 .kit-input{
-
+    border: lightgrey solid 1px;
+    text-align: center;
 }
 .kit-footer{
-
+    position: sticky;
+    margin-top: 47em;
+    text-align: center;
 }
 .kit-alert{
     position: relative;
