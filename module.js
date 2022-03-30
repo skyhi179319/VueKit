@@ -4,5 +4,5 @@ export function returnDevTools() {
     console.log("Vue devtools equals " + Vue.config.devtools);
 }
 export function returnProductionTip(){
-    console.log("Vue productionTip equals " + VUe.config.productionTip);
+    console.log("Vue productionTip equals " + Vue.config.productionTip);
 }
