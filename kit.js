@@ -170,7 +170,7 @@ var alert = new Vue({
                 </div>
                 <script type="module">
                     import * as main from './module.js';
-                    main.comp.addOnClick("alertButton");
+                    main.comp.addAlertClick("alertButton");
                 </script>
             </div>`
         }
@@ -193,6 +193,32 @@ var card = new Vue({
                     </div>
                   </div>
                 </div>
+            </div>`
+        }
+    }
+})
+var filter = new Vue({
+    el: '#filter',
+    components:{
+        'kit-filter': {
+            props: ['placeholder'],
+            template: `
+            <div>
+                <input type="text" id="kit-input" v-bind:placeholder="placeholder">
+            </div>`
+        }
+    }
+})
+var filter_module = new Vue({
+    el: '#filterModule',
+    components:{
+        'kit-filtermodule': {
+            template: `
+            <div>
+                <script type="module">
+                    import * as main from './module.js';
+                    main.comp.addFilter("kit-input",'kit-filter-parent');
+                </script>
             </div>`
         }
     }
