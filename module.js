@@ -17,8 +17,7 @@ export let vue = {
 export let comp = {
     // ALert functions
     deleteAlert: function (){
-        var parent = document.getElementById("deleteAlert");
-        parent.remove();
+        animations.disappear("deleteAlert")
     },
     addAlertClick: function(id){
         var element = document.getElementById(id);
@@ -50,6 +49,29 @@ export let comp = {
         var element = document.getElementById(input);
         element.onkeyup = function() {
             comp.filter(input,parent);
+        }
+    }
+}
+export let animations = {
+    disappear: function (element) {
+        var ele = document.getElementById(element);
+
+        function Disappear() {
+            ele.classList.add("kit-animation-disappear")
+        }
+
+        Disappear();
+
+        function RemoveBox() {
+            ele.remove();
+        }
+
+        setTimeout(RemoveBox, 4000)
+    },
+    appear: function (element){
+        var ele = document.getElementById(element);
+        function Appear(){
+            ele.classList.add("kit-animation-appear");
         }
     }
 }

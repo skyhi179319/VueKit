@@ -170,9 +170,17 @@ var alert = new Vue({
                 </div>
                 <script type="module">
                     import * as main from './module.js';
+                    main.animations.appear("deleteAlert");
                     main.comp.addAlertClick("alertButton");
                 </script>
-            </div>`
+            </div>`,
+            mounted() {
+                var el = this.$el
+                el.style.opacity = 0
+                setTimeout(function (){
+                    el.style.opacity = 1;
+                },500)
+            }
         }
     }
 })

@@ -136,3 +136,20 @@
 #kit-filter-parent li a:hover:not(.header) {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
+/* Animations */
+.kit-animation-appear{
+    animation-name: kit-appear;
+    animation-duration: 4s;
+}
+@keyframes kit-appear {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.kit-animation-disappear{
+    animation-name: kit-disappear;
+    animation-duration: 4s;
+}
+@keyframes kit-disappear {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
