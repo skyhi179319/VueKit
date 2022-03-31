@@ -9,10 +9,9 @@ var header = new Vue({
                 <link rel="stylesheet" href="/kit.css">
                 <script type="module">
                     import * as main from './module.js';
-                    Vue.config.devtools = main.devtools;
-                    Vue.config.productionTip = main.productionTip;
-                    main.returnDevTools();
-                    main.returnProductionTip();
+                    Vue.config.devtools = main.vue.devtools;
+                    Vue.config.productionTip = main.vue.productionTip;
+                    main.vue.returnVue();
                 </script>
             </div>`
         }
@@ -129,7 +128,7 @@ var youtubeVideo = new Vue({
             props: ['link'],
             template: `
             <div>
-                <iframe v-if="link !== ''" class="kit-youtube" v-bind:src="link" height="300" width="500"></iframe> 
+                <iframe v-if="link !== ''" class="kit-youtube" v-bind:src="link"></iframe> 
             </div>`
         }
     }
@@ -142,21 +141,37 @@ var alert = new Vue({
             props: ['type','text'],
             template: `
             <div>
-                <div v-if="type === 'primary'" class="kit-alert kit-alert-primary">
+                <div id="deleteAlert" v-if="type === 'primary'" class="kit-alert kit-alert-primary">
                     <p>{{text}}</p>
+                    <button class="kit-alert-button" id="alertButton">
+                        <span>&times;</span>
+                    </button>
                 </div>
-                <div v-else-if="type === 'success'" class="kit-alert kit-alert-success">
+                <div id="deleteAlert" v-else-if="type === 'success'" class="kit-alert kit-alert-success">
                     <p>{{text}}</p>
+                    <button class="kit-alert-button" id="alertButton">
+                        <span>&times;</span>
+                    </button>
                 </div>
-                <div v-else-if="type === 'warning'" class="kit-alert kit-alert-warning">
+                <div id="deleteAlert" v-else-if="type === 'warning'" class="kit-alert kit-alert-warning">
                     <p>{{text}}</p>
+                    <button class="kit-alert-button" id="alertButton">
+                        <span>&times;</span>
+                    </button>
                 </div>
-                <div v-else-if="type === 'failure'" class="kit-alert kit-alert-failure">
+                <div id="deleteAlert" v-else-if="type === 'failure'" class="kit-alert kit-alert-failure">
                     <p>{{text}}</p>
+                    <button class="kit-alert-button" id="alertButton">
+                        <span>&times;</span>
+                    </button>
                 </div>
                 <div v-else>
                 
                 </div>
+                <script type="module">
+                    import * as main from './module.js';
+                    main.comp.addOnClick("alertButton");
+                </script>
             </div>`
         }
     }
@@ -165,15 +180,17 @@ var card = new Vue({
     el: '#card',
     components:{
         'kit-card': {
-            props: ['type','url','alt','title'],
+            props: ['type','url','alt','title','text'],
             template: `
             <div>
-                <div class="kit-card" style="width: 18rem;">
+                <div class="kit-card" style="width: 15rem;">
                   <img v-if="type === 'img'" class="kit-card-img-top" v-bind:src="url" v-bind:alt="alt">
-                  <iframe v-if="type === 'iframe'" v-bind:src="url" height="300" width="500"></iframe>
+                  <iframe v-if="type === 'iframe'" v-bind:src="url" height="250" width="238"></iframe>
                   <div class="kit-card-body">
-                    <h5 class="kit-card-title">{{title}}</h5>
-                    <p>{{text}}</p>
+                    <div class="kit-card-body-content">
+                        <h5 class="kit-card-title">{{title}}</h5>
+                        <p class="kit-card-text">{{text}}</p>
+                    </div>
                   </div>
                 </div>
             </div>`

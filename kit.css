@@ -12,7 +12,8 @@
     background-color: black;
 }
 .kit-youtube{
-
+    width: 300px;
+    height: 201px;
 }
 .kit-input{
     border: lightgrey solid 1px;
@@ -24,11 +25,30 @@
     text-align: center;
 }
 .kit-alert{
-    position: relative;
-    padding: 0.75rem 1.25rem;
+    position: absolute;
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: 0.25rem;
+    width: 440px;
+    right: 0px;
+    bottom: 0px;
+    margin-right: 5px;
+    text-align: center;
+}
+.kit-alert-button{
+    position: absolute;
+    top: 4px;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+}
+.kit-alert-button > span{
+    font-size: 20px;
+}
+.kit-alert-button:hover > span{
+    color: black;
 }
 .kit-alert-primary{
     color: #004085;
@@ -77,6 +97,13 @@
     flex: 1 1 auto;
     padding: 1.25rem;
 }
+.kit-card-body-content{
+    margin-bottom: -10px;
+}
 .kit-card-title{
     margin-bottom: 0.75rem;
+    font-size: 1.25rem
+}
+.kit-card-text{
+    font-size: 1rem
 }
