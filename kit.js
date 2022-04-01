@@ -17,6 +17,18 @@ var header = new Vue({
         }
     }
 })
+var title = new Vue({
+    el: '#title',
+    components:{
+        'kit-title': {
+            props: ['text'],
+            template: `
+            <div>
+                <h1 class="kit-title">{{text}}</h1>
+            </div>`
+        }
+    }
+})
 var footer = new Vue({
     el: '#footer',
     components:{
@@ -185,6 +197,10 @@ var alert = new Vue({
                     import * as main from './module.js';
                     main.animations.appear("deleteAlert");
                     main.comp.addAlertClick("alertButton");
+                </script>
+                <script type="module">
+                    import * as main from "./module.js";
+                    main.comp.ele.getAlertElement();
                 </script>
             </div>`,
             mounted() {

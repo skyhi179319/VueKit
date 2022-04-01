@@ -50,6 +50,11 @@ export let comp = {
         element.onkeyup = function() {
             comp.filter(input,parent);
         }
+    },
+    ele: {
+        getAlertElement: function(){
+            console.log(alert.$el.firstChild.firstChild);
+        }
     }
 }
 export let animations = {

@@ -24,6 +24,10 @@
     margin-top: 47em;
     text-align: center;
 }
+.kit-title{
+    text-align: center;
+    color: #605d5d;
+}
 .kit-alert{
     position: absolute;
     margin-bottom: 1rem;
