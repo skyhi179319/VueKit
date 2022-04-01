@@ -4,6 +4,9 @@ function returnDevTools() {
 function returnProductionTip(){
     console.log("Vue productionTip equals " + Vue.config.productionTip);
 }
+export let settings = {
+    consoleElements: true
+}
 export let vue = {
     // Vue functions
     devtools: true,
@@ -53,7 +56,12 @@ export let comp = {
     },
     ele: {
         getAlertElement: function(){
-            console.log(alert.$el.firstChild.firstChild);
+            if(settings.consoleElements === true){
+                console.log(alert.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
         }
     }
 }

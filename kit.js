@@ -9,6 +9,7 @@ var header = new Vue({
                 <link rel="stylesheet" href="/kit.css">
                 <script type="module">
                     import * as main from './module.js';
+                    main.settings.consoleElements = false;
                     Vue.config.devtools = main.vue.devtools;
                     Vue.config.productionTip = main.vue.productionTip;
                     main.vue.returnVue();
