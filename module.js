@@ -73,5 +73,19 @@ export let animations = {
         function Appear(){
             ele.classList.add("kit-animation-appear");
         }
+        Appear();
+    },
+    spinner: {
+        addAnimation: function(){
+            var ele = document.getElementById('addSpinnerAnimation');
+            ele.classList.add("kit-spinner-animation")
+        },
+        destroy: function(){
+            var ele = document.getElementById("addSpinnerAnimation");
+            ele.remove();
+        },
+        timedDestroy: function(ms){
+            setTimeout(this.destroy,ms);
+        }
     }
 }

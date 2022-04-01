@@ -54,7 +54,7 @@ var textarea = new Vue({
 var input = new Vue({
     el: '#input',
     components:{
-        'kit-textarea': {
+        'kit-input': {
             props: ['type','name','width', 'id'],
             template: `
             <div>
@@ -74,6 +74,19 @@ var input = new Vue({
                         <input v-bind:type="type" v-bind:name="name" v-bind:width="width" class="kit-input">
                     </div>
                 </div>
+            </div>`
+        }
+    }
+})
+var checkbox = new Vue({
+    el: '#checkbox',
+    components: {
+        'kit-textarea': {
+            props: ['id', 'name', 'text'],
+            template: `
+            <div id="input">
+                <kit-input type="checkbox" v-bind:name="name" v-bind:id="id"></kit-input> 
+                <label v-bind:for="name">{{text}}</label><br>
             </div>`
         }
     }
@@ -226,6 +239,22 @@ var filter_module = new Vue({
                 <script type="module">
                     import * as main from './module.js';
                     main.comp.addFilter("kit-input",'kit-filter-parent');
+                </script>
+            </div>`
+        }
+    }
+})
+var spinner = new Vue({
+    el: '#spinner',
+    components:{
+        'kit-spinner': {
+            props: ['autodestroy'],
+            template: `
+            <div>
+                <div id="addSpinnerAnimation" class="kit-spinner"></div>
+                <script type="module">
+                    import * as main from './module.js';
+                    main.animations.spinner.addAnimation();
                 </script>
             </div>`
         }
