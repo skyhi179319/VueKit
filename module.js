@@ -5,7 +5,28 @@ function returnProductionTip(){
     console.log("Vue productionTip equals " + Vue.config.productionTip);
 }
 export let settings = {
-    consoleElements: true
+    consoleElements: true,
+    checkStatus: function (){
+        if(navigator.onLine){
+            return true;
+        }
+        else{
+            return false;
+        }
+    },
+    loadFonts: function (){
+        if(this.checkStatus() === true){
+            var offline = document.getElementById("kit-Fonts");
+            offline.remove();
+        }
+        else{
+            console.log("Can't load Google Fonts");
+            console.log("added offline script");
+            var online = document.getElementById("kit-GoogleFonts");
+            online.remove();
+        }
+    },
+
 }
 export let vue = {
     // Vue functions
@@ -55,6 +76,70 @@ export let comp = {
         }
     },
     ele: {
+        getTitleElement: function (){
+            if(settings.consoleElements === true){
+                console.log(title.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
+        getFooterElement: function (){
+            if(settings.consoleElements === true){
+                console.log(footer.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
+        getTextareaElement: function (){
+            if(settings.consoleElements === true){
+                console.log(textarea.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
+        getInputElement: function (){
+            if(settings.consoleElements === true){
+                console.log(input.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
+        getCheckboxElement: function (){
+            if(settings.consoleElements === true){
+                console.log(checkbox.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
+        getAudioElement: function (){
+            if(settings.consoleElements === true){
+                console.log(audio.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
+        getVideoElement: function (){
+            if(settings.consoleElements === true){
+                console.log(video.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
+        getYoutubeElement: function (){
+            if(settings.consoleElements === true){
+                console.log(youtubeVideo.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
         getAlertElement: function(){
             if(settings.consoleElements === true){
                 console.log(alert.$el.firstChild.firstChild);
@@ -62,7 +147,39 @@ export let comp = {
             else{
 
             }
-        }
+        },
+        getCardElement: function (){
+            if(settings.consoleElements === true){
+                console.log(card.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
+        getFilterElement: function (){
+            if(settings.consoleElements === true){
+                console.log(filter.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
+        getFilterModuleElement: function (){
+            if(settings.consoleElements === true){
+                console.log(filter_module.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
+        getSpinnerElement: function (){
+            if(settings.consoleElements === true){
+                console.log(spinner.$el.firstChild.firstChild);
+            }
+            else{
+
+            }
+        },
     }
 }
 export let animations = {
