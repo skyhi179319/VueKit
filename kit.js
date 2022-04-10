@@ -16,6 +16,7 @@ var header = new Vue({
                     Vue.config.productionTip = main.vue.productionTip;
                     main.vue.returnVue();
                     main.settings.loadFonts();
+                    main.func.printStatus();
                 </script>
             </div>`
         }

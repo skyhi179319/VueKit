@@ -4,8 +4,7 @@ function returnDevTools() {
 function returnProductionTip(){
     console.log("Vue productionTip equals " + Vue.config.productionTip);
 }
-export let settings = {
-    consoleElements: true,
+export let func = {
     checkStatus: function (){
         if(navigator.onLine){
             return true;
@@ -14,8 +13,38 @@ export let settings = {
             return false;
         }
     },
-    loadFonts: function (){
+    printStatus: function (){
         if(this.checkStatus() === true){
+            console.log("online");
+        }
+        else{
+            console.log("offline");
+        }
+    },
+    json: {
+        get: function(url,callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.responseType = 'json';
+            xhr.onload = function() {
+                var status = xhr.status;
+                if (status === 200) {
+                    callback(null, xhr.response);
+                } else {
+                    callback(status, xhr.response);
+                }
+            };
+            xhr.send();
+        },
+        error: function (err){
+            console.log('Something went wrong: ' + err);
+        }
+    },
+}
+export let settings = {
+    consoleElements: true,
+    loadFonts: function (){
+        if(func.checkStatus() === true){
             var offline = document.getElementById("kit-Fonts");
             offline.remove();
         }
@@ -26,7 +55,6 @@ export let settings = {
             online.remove();
         }
     },
-
 }
 export let vue = {
     // Vue functions
