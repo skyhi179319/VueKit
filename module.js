@@ -38,6 +38,55 @@ export let func = {
         },
         error: function (err){
             console.log('Something went wrong: ' + err);
+        },
+        load: class{
+            constructor(url) {
+                this.url = url;
+            }
+            layer(id,object){
+                func.json.get(this.url,function(err, data) {
+                    if (err !== null) {
+                        func.json.error(err);
+                    } else {
+                        var ele = document.getElementById(id);
+                        ele.innerText = data[object];
+                        console.log(data[object]);
+                    }
+                });
+            }
+            layer1(id,object1,object2){
+                func.json.get(this.url,function(err, data) {
+                    if (err !== null) {
+                        func.json.error(err);
+                    } else {
+                        var ele = document.getElementById(id);
+                        ele.innerText = data[object1][object2];
+                        console.log(data[object1][object2]);
+                    }
+                });
+            }
+            layer2(id,object1,object2,object3){
+                func.json.get(this.url,function(err, data) {
+                    if (err !== null) {
+                        func.json.error(err);
+                    } else {
+                        var ele = document.getElementById(id);
+                        ele.innerText = data[object1][object2][object3];
+                        console.log(data[object1][object2][object3]);
+                    }
+                });
+            }
+            layer3(id,object1,object2,object3,object4){
+                func.json.get(this.url,function(err, data) {
+                    if (err !== null) {
+                        func.json.error(err);
+                    } else {
+                        var ele = document.getElementById(id);
+                        ele.innerText = data[object1][object2][object3][object4];
+                        console.log(data[object1][object2][object3][object4]);
+                    }
+                });
+            }
         }
     },
 }
