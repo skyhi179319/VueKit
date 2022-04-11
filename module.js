@@ -171,6 +171,59 @@ export let JSON = {
         }
     }
 }
+export let sys = {
+    math: {
+        multiply: function (x,y) {
+            return x*y;
+        },
+        add: function (x,y) {
+            return x+y;
+        },
+        divide: function (x,y) {
+            if(y === 0 || typeof y !== "number"){
+
+            }
+            else{
+                return x/y;
+            }
+        },
+        subtract: function (x,y){
+            return x-y;
+        },
+        pi: function () {
+            return Math.PI;
+        },
+        absolute: function (x) {
+            return Math.abs(x);
+        },
+        random: function (max) {
+            return Math.floor(Math.random() * max);
+        },
+        randomXY: function (min,max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (this.subtract(max,min)) + min);
+        },
+        round: function (x) {
+            Math.round(x);
+        }
+    },
+    dateTime: {
+        getTime: function () {
+            const d = new Date();
+            var time = d.toLocaleTimeString();
+            return time;
+        },
+        getDate: function () {
+            const d = new Date();
+            var date = d.toLocaleDateString();
+            return date;
+        },
+        getTimeDate: function () {
+            return this.getDate() + " " + this.getTime();
+        }
+    }
+}
 export let settings = {
     consoleElements: true,
     loadFonts: function (){
