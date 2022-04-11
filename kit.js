@@ -29,7 +29,7 @@ var title = new Vue({
             props: ['text'],
             template: `
             <div>
-                <h1 id="title" class="kit-title">{{text}}</h1>
+                <h1 id="Title" class="kit-title">{{text}}</h1>
                 <script type="module">
                     import * as main from "./module.js";
                     main.comp.ele.getTitleElement();

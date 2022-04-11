@@ -21,74 +21,77 @@ export let func = {
             console.log("offline");
         }
     },
-    json: {
-        get: function(url,callback) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
-            xhr.responseType = 'json';
-            xhr.onload = function() {
-                var status = xhr.status;
-                if (status === 200) {
-                    callback(null, xhr.response);
-                } else {
-                    callback(status, xhr.response);
-                }
-            };
-            xhr.send();
-        },
-        error: function (err){
-            console.log('Something went wrong: ' + err);
-        },
-        load: class{
-            constructor(url) {
-                this.url = url;
+}
+export let JSON = {
+    get: function(url,callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function() {
+            var status = xhr.status;
+            if (status === 200) {
+                callback(null, xhr.response);
+            } else {
+                callback(status, xhr.response);
             }
-            layer(id,object){
-                func.json.get(this.url,function(err, data) {
-                    if (err !== null) {
-                        func.json.error(err);
-                    } else {
-                        var ele = document.getElementById(id);
-                        ele.innerText = data[object];
-                        console.log(data[object]);
-                    }
-                });
-            }
-            layer1(id,object1,object2){
-                func.json.get(this.url,function(err, data) {
-                    if (err !== null) {
-                        func.json.error(err);
-                    } else {
-                        var ele = document.getElementById(id);
-                        ele.innerText = data[object1][object2];
-                        console.log(data[object1][object2]);
-                    }
-                });
-            }
-            layer2(id,object1,object2,object3){
-                func.json.get(this.url,function(err, data) {
-                    if (err !== null) {
-                        func.json.error(err);
-                    } else {
-                        var ele = document.getElementById(id);
-                        ele.innerText = data[object1][object2][object3];
-                        console.log(data[object1][object2][object3]);
-                    }
-                });
-            }
-            layer3(id,object1,object2,object3,object4){
-                func.json.get(this.url,function(err, data) {
-                    if (err !== null) {
-                        func.json.error(err);
-                    } else {
-                        var ele = document.getElementById(id);
-                        ele.innerText = data[object1][object2][object3][object4];
-                        console.log(data[object1][object2][object3][object4]);
-                    }
-                });
-            }
-        }
+        };
+        xhr.send();
     },
+    error: function (err){
+        console.log('Something went wrong: ' + err);
+    },
+    load: class{
+        constructor(url) {
+            this.url = url;
+        }
+        layer(id,object){
+            JSON.get(this.url,function(err, data) {
+                if (err !== null) {
+                    JSON.error(err);
+                } else {
+                    var ele = document.getElementById(id);
+                    ele.innerText = data[object];
+                    console.log(data[object]);
+                }
+            });
+        }
+        layer1(id,object1,object2){
+            JSON.get(this.url,function(err, data) {
+                if (err !== null) {
+                    JSON.error(err);
+                } else {
+                    var ele = document.getElementById(id);
+                    ele.innerText = data[object1][object2];
+                    console.log(data[object1][object2]);
+                }
+            });
+        }
+        layer2(id,object1,object2,object3){
+            JSON.get(this.url,function(err, data) {
+                if (err !== null) {
+                    JSON.error(err);
+                } else {
+                    var ele = document.getElementById(id);
+                    ele.innerText = data[object1][object2][object3];
+                    console.log(data[object1][object2][object3]);
+                }
+            });
+        }
+        layer3(id,object1,object2,object3,object4){
+            JSON.get(this.url,function(err, data) {
+                if (err !== null) {
+                    JSON.error(err);
+                } else {
+                    var ele = document.getElementById(id);
+                    ele.innerText = data[object1][object2][object3][object4];
+                    console.log(data[object1][object2][object3][object4]);
+                }
+            });
+        }
+        getURL(){
+            return this.url;
+        }
+    }
 }
 export let settings = {
     consoleElements: true,
