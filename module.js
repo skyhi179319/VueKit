@@ -40,7 +40,7 @@ export let JSON = {
     error: function (err){
         console.log('Something went wrong: ' + err);
     },
-    load: class{
+    put: class{
         constructor(url) {
             this.url = url;
         }
@@ -90,6 +90,84 @@ export let JSON = {
         }
         getURL(){
             return this.url;
+        }
+        getData(){
+            JSON.get(this.url,function(err, data) {
+                if (err !== null) {
+                    JSON.error(err);
+                } else {
+                    console.log(data);
+                }
+            })
+        }
+    },
+    create: class{
+        constructor(url) {
+            this.url = url;
+        }
+        layer(id,type,object){
+            JSON.get(this.url,function(err, data) {
+                if (err !== null) {
+                    JSON.error(err);
+                } else {
+                    var div = document.getElementById(id);
+                    var ele = document.createElement(type);
+                    ele.innerText = data[object];
+                    div.appendChild(ele);
+                    console.log(data[object]);
+                }
+            });
+        }
+        layer1(id,type,object1,object2){
+            JSON.get(this.url,function(err, data) {
+                if (err !== null) {
+                    JSON.error(err);
+                } else {
+                    var div = document.getElementById(id);
+                    var ele = document.createElement(type);
+                    ele.innerText = data[object1][object2];
+                    div.appendChild(ele);
+                    console.log(data[object1][object2]);
+                }
+            });
+        }
+        layer2(id,type,object1,object2,object3){
+            JSON.get(this.url,function(err, data) {
+                if (err !== null) {
+                    JSON.error(err);
+                } else {
+                    var div = document.getElementById(id);
+                    var ele = document.createElement(type);
+                    ele.innerText = data[object1][object2][object3];
+                    div.appendChild(ele);
+                    console.log(data[object1][object2][object3]);
+                }
+            });
+        }
+        layer3(id,type,object1,object2,object3,object4){
+            JSON.get(this.url,function(err, data) {
+                if (err !== null) {
+                    JSON.error(err);
+                } else {
+                    var div = document.getElementById(id);
+                    var ele = document.createElement(type);
+                    ele.innerText = data[object1][object2][object3][object4];
+                    div.appendChild(ele);
+                    console.log(data[object1][object2][object3][object4]);
+                }
+            });
+        }
+        getURL(){
+            return this.url;
+        }
+        getData(){
+            JSON.get(this.url,function(err, data) {
+                if (err !== null) {
+                    JSON.error(err);
+                } else {
+                    console.log(data);
+                }
+            })
         }
     }
 }
