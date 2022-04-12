@@ -206,7 +206,13 @@ export let sys = {
             return this.o.floor(this.o.random() * (this.subtract(max,min)) + min);
         },
         round: function (x) {
-            this.o.round(x);
+            return this.o.round(x);
+        },
+        max: function(x){
+            return this.o.max(x);
+        },
+        min: function (x) {
+            return this.o.min(x);
         }
     },
     dateTime: {
@@ -222,7 +228,7 @@ export let sys = {
         getTimeDate: function () {
             return this.getDate() + " " + this.getTime();
         }
-    }
+    },
 }
 export let settings = {
     consoleElements: true,
