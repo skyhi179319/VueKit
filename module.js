@@ -213,6 +213,46 @@ export let sys = {
         },
         min: function (x) {
             return this.o.min(x);
+        },
+        array: class{
+          constructor(array) {
+              this.array = array;
+          }
+          getMax(){
+              var c = new sys.array(this.array);
+              if(c.isArray() === true){
+                  return sys.math.max(this.array);
+              }
+          }
+          getMin(){
+              var c = new sys.array(this.array);
+              if(c.isArray() === true){
+                  return sys.math.min(this.array);
+              }
+          }
+          getTotal(){
+              var c = new sys.array(this.array);
+              var length = c.getLength();
+              var total = 0;
+              for (let i = 0; i < length; i++) {
+                  total = total + this.array[i]
+              }
+              if(c.isArray() === true){
+                  return total;
+              }
+          }
+          pop(){
+              var c = new sys.array(this.array);
+              c.pop();
+          }
+          push(value){
+              var c = new sys.array(this.array);
+              c.push(value);
+          }
+          get(i){
+              var c = new sys.array(this.array);
+              c.get(i);
+          }
         }
     },
     dateTime: {
@@ -229,6 +269,47 @@ export let sys = {
             return this.getDate() + " " + this.getTime();
         }
     },
+    array: class {
+        constructor(array) {
+            this.array = array;
+        }
+        isArray(){
+            return this.array.constructor.toString().indexOf("Array") > - 1;
+        }
+        getLength(){
+            if(this.isArray() === true){
+                return this.array.length;
+            }
+        }
+        console(){
+            if(this.isArray() === true){
+                console.log(this.array);
+            }
+        }
+        consoleValues(){
+            var length = this.getLength();
+            if(this.isArray() === true){
+                for (let i = 0; i < length; i++) {
+                    console.log(this.array[i]);
+                }
+            }
+        }
+        pop(){
+            if(this.isArray() === true){
+                this.array.pop();
+            }
+        }
+        push(value){
+            if(this.isArray() === true){
+                this.array.push(value);
+            }
+        }
+        get(i){
+            if(this.isArray() === true){
+                return this.array[i];
+            }
+        }
+    }
 }
 export let settings = {
     consoleElements: true,
