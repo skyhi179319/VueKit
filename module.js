@@ -253,6 +253,14 @@ export let sys = {
               var c = new sys.array(this.array);
               c.get(i);
           }
+          console(){
+              var c = new sys.array(this.array);
+              c.console();
+          }
+          consoleValues(){
+              var c = new sys.array(this.array);
+              c.consoleValues();
+          }
         }
     },
     dateTime: {
@@ -308,6 +316,44 @@ export let sys = {
             if(this.isArray() === true){
                 return this.array[i];
             }
+        }
+    },
+    String: class {
+        constructor(value) {
+            this.value = value;
+        }
+        splice(start,end){
+            return this.value.splice(start,end);
+        }
+        substring(start,end){
+            return this.value.substring(start,end);
+        }
+        replace(original, newWord){
+            return this.value.replace(original,newWord);
+        }
+        lowercase(){
+            return this.value.toLowerCase();
+        }
+        uppercase(){
+            return this.value.toUpperCase();
+        }
+        concat(text){
+            return this.value.concat(text);
+        }
+        padStart(place,text){
+            return this.value.padStart(place,text);
+        }
+        padEnd(place,text){
+            return this.value.padEnd(place,text);
+        }
+        pad(start,startText,end,endText){
+            var text = this.value;
+            text.padStart(start,startText);
+            text.padEnd(end,endText);
+            return text;
+        }
+        get(){
+            return this.value;
         }
     }
 }
