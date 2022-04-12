@@ -173,6 +173,7 @@ export let JSON = {
 }
 export let sys = {
     math: {
+        o: Math,
         multiply: function (x,y) {
             return x*y;
         },
@@ -191,32 +192,31 @@ export let sys = {
             return x-y;
         },
         pi: function () {
-            return Math.PI;
+            return this.o.PI;
         },
         absolute: function (x) {
-            return Math.abs(x);
+            return this.o.abs(x);
         },
         random: function (max) {
-            return Math.floor(Math.random() * max);
+            return this.o.floor(this.o.random() * max);
         },
         randomXY: function (min,max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (this.subtract(max,min)) + min);
+            min = this.o.ceil(min);
+            max = this.o.floor(max);
+            return this.o.floor(this.o.random() * (this.subtract(max,min)) + min);
         },
         round: function (x) {
-            Math.round(x);
+            this.o.round(x);
         }
     },
     dateTime: {
+        c: new Date(),
         getTime: function () {
-            const d = new Date();
-            var time = d.toLocaleTimeString();
+            var time = this.c.toLocaleTimeString();
             return time;
         },
         getDate: function () {
-            const d = new Date();
-            var date = d.toLocaleDateString();
+            var date = this.c.toLocaleDateString();
             return date;
         },
         getTimeDate: function () {
