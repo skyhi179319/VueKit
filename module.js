@@ -169,7 +169,7 @@ export let JSON = {
                 }
             })
         }
-    }
+    },
 }
 export let sys = {
     math: {
@@ -214,54 +214,13 @@ export let sys = {
         min: function (x) {
             return this.o.min(x);
         },
-        array: class{
-          constructor(array) {
-              this.array = array;
-          }
-          getMax(){
-              var c = new sys.array(this.array);
-              if(c.isArray() === true){
-                  return sys.math.max(this.array);
-              }
-          }
-          getMin(){
-              var c = new sys.array(this.array);
-              if(c.isArray() === true){
-                  return sys.math.min(this.array);
-              }
-          }
-          getTotal(){
-              var c = new sys.array(this.array);
-              var length = c.getLength();
-              var total = 0;
-              for (let i = 0; i < length; i++) {
-                  total = total + this.array[i]
-              }
-              if(c.isArray() === true){
-                  return total;
-              }
-          }
-          pop(){
-              var c = new sys.array(this.array);
-              c.pop();
-          }
-          push(value){
-              var c = new sys.array(this.array);
-              c.push(value);
-          }
-          get(i){
-              var c = new sys.array(this.array);
-              c.get(i);
-          }
-          console(){
-              var c = new sys.array(this.array);
-              c.console();
-          }
-          consoleValues(){
-              var c = new sys.array(this.array);
-              c.consoleValues();
-          }
-        }
+        sum: function (x){
+            var total=0;
+            for(var i in x) {
+                total += x[i];
+            }
+            return total;
+        },
     },
     dateTime: {
         c: new Date(),
@@ -281,41 +240,26 @@ export let sys = {
         constructor(array) {
             this.array = array;
         }
-        isArray(){
-            return this.array.constructor.toString().indexOf("Array") > - 1;
-        }
         getLength(){
-            if(this.isArray() === true){
-                return this.array.length;
-            }
+            return this.array.length;
         }
         console(){
-            if(this.isArray() === true){
-                console.log(this.array);
-            }
+            console.log(this.array);
         }
         consoleValues(){
             var length = this.getLength();
-            if(this.isArray() === true){
-                for (let i = 0; i < length; i++) {
-                    console.log(this.array[i]);
-                }
+            for (let i = 0; i < length; i++) {
+                console.log(this.array[i]);
             }
         }
         pop(){
-            if(this.isArray() === true){
-                this.array.pop();
-            }
+            this.array.pop();
         }
         push(value){
-            if(this.isArray() === true){
-                this.array.push(value);
-            }
+            this.array.push(value);
         }
         get(i){
-            if(this.isArray() === true){
-                return this.array[i];
-            }
+            return this.array[i];
         }
     },
     String: class {
@@ -390,7 +334,7 @@ export let comp = {
     addAlertClick: function(id){
         var element = document.getElementById(id);
         element.onclick = function() {
-           comp.deleteAlert();
+            comp.deleteAlert();
         }
     },
     // Filter functions
